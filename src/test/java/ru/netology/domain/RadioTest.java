@@ -1,12 +1,15 @@
 package ru.netology.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
 
-    Radio radio = new Radio(10, 0);
+    Radio radio = new Radio(30);
+    Radio radio1 = new Radio();
+
 
     @Test
     public void shouldNextStation() {
@@ -30,21 +33,21 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseCurrentStation9() {
-        radio.setCurrentStation(10);
-        radio.nextStation();
+        radio1.setCurrentStation(10);
+        radio1.nextStation();
         assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     public void shouldDecreaseCurrentStation0() {
         radio.prevStation();
-        ;
-        assertEquals(10, radio.getCurrentStation());
+
+        assertEquals(29, radio.getCurrentStation());
     }
 
     @Test
     public void shouldNotSetStationMoreMax() {
-        radio.setCurrentStation(11);
+        radio1.setCurrentStation(11);
         assertEquals(0, radio.getCurrentStation());
     }
 
